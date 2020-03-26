@@ -1,0 +1,822 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**安裝熊貓與呼叫資料**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import matplotlib.pyplot as plt\n",
+    "import pandas as pd"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df = pd.read_csv('/Users/wombat/Desktop/課程筆記/政治與資訊/教學資料/CSV 資料集/10802_2020_tclw.csv')  "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "                      Date Page_Name           Page_ID  Link    Type  \\\n",
+      "0      2020/01/12 01:17:08    3Q 陳柏惟   540113462988316   NaN   photo   \n",
+      "1      2020/01/11 19:20:53    3Q 陳柏惟   540113462988316   NaN   video   \n",
+      "2      2020/01/11 22:22:44       洪慈庸   852926604746233   NaN   photo   \n",
+      "3      2020/01/12 11:18:43    3Q 陳柏惟   540113462988316   NaN   photo   \n",
+      "4      2020/01/11 23:08:05    3Q 陳柏惟   540113462988316   NaN   photo   \n",
+      "...                    ...       ...               ...   ...     ...   \n",
+      "11106  2019/11/15 18:55:42    民眾黨謝文卿   102091854559464   NaN  status   \n",
+      "11107  2019/06/12 18:41:13    3Q 陳柏惟   540113462988316   NaN   photo   \n",
+      "11108  2019/06/25 15:16:04       江啟臣   191690867518507   NaN  status   \n",
+      "11109  2019/03/20 04:42:28    3Q 陳柏惟   540113462988316   NaN   photo   \n",
+      "11110  2019/03/21 09:00:23  張渝江技師章魚哥  1096260013752554   NaN    link   \n",
+      "\n",
+      "       All_Reaction_Count  LIKE_COUNT  WOW_COUNT  LOVE_COUNT  HAHA_COUNT  \\\n",
+      "0                  161773      150478         78       10670         506   \n",
+      "1                  151413      131456        109       18474        1234   \n",
+      "2                  144387      119716        112       11145         165   \n",
+      "3                  120255      107230         79        5263        7674   \n",
+      "4                  114715      104852         45        7745        2053   \n",
+      "...                   ...         ...        ...         ...         ...   \n",
+      "11106                   0           0          0           0           0   \n",
+      "11107                   0           0          0           0           0   \n",
+      "11108                   0           0          0           0           0   \n",
+      "11109                   1           0          0           0           1   \n",
+      "11110                   0           0          0           0           0   \n",
+      "\n",
+      "       SAD_COUNT  ANGRY_COUNT  Comment_Count  Share_Count  \\\n",
+      "0             34            7           9133         2454   \n",
+      "1             55           85          49462         3465   \n",
+      "2          13210           39          10209         1741   \n",
+      "3              4            5           5538         1059   \n",
+      "4             15            5           7826          467   \n",
+      "...          ...          ...            ...          ...   \n",
+      "11106          0            0              0            0   \n",
+      "11107          0            0              0            0   \n",
+      "11108          0            0              0            0   \n",
+      "11109          0            0              0            0   \n",
+      "11110          0            0              0            0   \n",
+      "\n",
+      "                                                 Message  \\\n",
+      "0      【陳柏惟-勝選感言】\\n\\n謝謝你們，你們做到了。\\n\\n半年前，我來到這邊的時候，99%的...   \n",
+      "1                                                 凍蒜啦!!!   \n",
+      "2      【請繼續相信年輕人，相信台灣這片土地】\\n　\\n謝謝大家，謝謝所有陪伴慈庸一路至今的朋友、長...   \n",
+      "3      想找一張最冷靜的找不到，就找一張圖文不符的\\n\\n--\\n\\n很多事情要做，很多話想說\\n\\...   \n",
+      "4      我現在心中只有感謝，等等要寫一篇像打贏大專杯的超級長文，但是因為要打很久，所以電話跟訊息都沒...   \n",
+      "...                                                  ...   \n",
+      "11106  小孩子的微笑，是我前進的力量\\n他們的快樂，是我們的責任\\n下一代的未來，我們一起來改變\\n...   \n",
+      "11107  【反送中，撤惡法】高雄場\\n\\n雖然立法會宣布延審，但惡法再延也是惡法，惡霸依然是惡霸，這是...   \n",
+      "11108                                                NaN   \n",
+      "11109                                          Be happy.   \n",
+      "11110  https://chinese.engadget.com/2019/03/20/tokyo-...   \n",
+      "\n",
+      "                      Link_Title  \\\n",
+      "0                            NaN   \n",
+      "1                            NaN   \n",
+      "2                            NaN   \n",
+      "3                Timeline Photos   \n",
+      "4                            NaN   \n",
+      "...                          ...   \n",
+      "11106                        NaN   \n",
+      "11107                        NaN   \n",
+      "11108                        NaN   \n",
+      "11109                        NaN   \n",
+      "11110  機器人將會在 2020 年奧運會場中擔任觀眾的嚮導   \n",
+      "\n",
+      "                                        Link Description   created_time  \n",
+      "0                                                    NaN  1578763028000  \n",
+      "1                                                    NaN  1578741653000  \n",
+      "2                                                    NaN  1578752564000  \n",
+      "3                                                    NaN  1578799123000  \n",
+      "4                                                    NaN  1578755285000  \n",
+      "...                                                  ...            ...  \n",
+      "11106                                                NaN  1573815342000  \n",
+      "11107                                                NaN  1560336073000  \n",
+      "11108                                                NaN  1561446964000  \n",
+      "11109                                                NaN  1553028148000  \n",
+      "11110  相信大家對於機器人將於 2020 年東京奧運會中提供服務應該不會感到驚訝吧，畢竟如此展現技術...  1553130023000  \n",
+      "\n",
+      "[11111 rows x 18 columns]\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Date</th>\n",
+       "      <th>Page_Name</th>\n",
+       "      <th>Page_ID</th>\n",
+       "      <th>Link</th>\n",
+       "      <th>Type</th>\n",
+       "      <th>All_Reaction_Count</th>\n",
+       "      <th>LIKE_COUNT</th>\n",
+       "      <th>WOW_COUNT</th>\n",
+       "      <th>LOVE_COUNT</th>\n",
+       "      <th>HAHA_COUNT</th>\n",
+       "      <th>SAD_COUNT</th>\n",
+       "      <th>ANGRY_COUNT</th>\n",
+       "      <th>Comment_Count</th>\n",
+       "      <th>Share_Count</th>\n",
+       "      <th>Message</th>\n",
+       "      <th>Link_Title</th>\n",
+       "      <th>Link Description</th>\n",
+       "      <th>created_time</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>2020/01/12 01:17:08</td>\n",
+       "      <td>3Q 陳柏惟</td>\n",
+       "      <td>540113462988316</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>photo</td>\n",
+       "      <td>161773</td>\n",
+       "      <td>150478</td>\n",
+       "      <td>78</td>\n",
+       "      <td>10670</td>\n",
+       "      <td>506</td>\n",
+       "      <td>34</td>\n",
+       "      <td>7</td>\n",
+       "      <td>9133</td>\n",
+       "      <td>2454</td>\n",
+       "      <td>【陳柏惟-勝選感言】\\n\\n謝謝你們，你們做到了。\\n\\n半年前，我來到這邊的時候，99%的...</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>1578763028000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>2020/01/11 19:20:53</td>\n",
+       "      <td>3Q 陳柏惟</td>\n",
+       "      <td>540113462988316</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>video</td>\n",
+       "      <td>151413</td>\n",
+       "      <td>131456</td>\n",
+       "      <td>109</td>\n",
+       "      <td>18474</td>\n",
+       "      <td>1234</td>\n",
+       "      <td>55</td>\n",
+       "      <td>85</td>\n",
+       "      <td>49462</td>\n",
+       "      <td>3465</td>\n",
+       "      <td>凍蒜啦!!!</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>1578741653000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>2020/01/11 22:22:44</td>\n",
+       "      <td>洪慈庸</td>\n",
+       "      <td>852926604746233</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>photo</td>\n",
+       "      <td>144387</td>\n",
+       "      <td>119716</td>\n",
+       "      <td>112</td>\n",
+       "      <td>11145</td>\n",
+       "      <td>165</td>\n",
+       "      <td>13210</td>\n",
+       "      <td>39</td>\n",
+       "      <td>10209</td>\n",
+       "      <td>1741</td>\n",
+       "      <td>【請繼續相信年輕人，相信台灣這片土地】\\n　\\n謝謝大家，謝謝所有陪伴慈庸一路至今的朋友、長...</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>1578752564000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>2020/01/12 11:18:43</td>\n",
+       "      <td>3Q 陳柏惟</td>\n",
+       "      <td>540113462988316</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>photo</td>\n",
+       "      <td>120255</td>\n",
+       "      <td>107230</td>\n",
+       "      <td>79</td>\n",
+       "      <td>5263</td>\n",
+       "      <td>7674</td>\n",
+       "      <td>4</td>\n",
+       "      <td>5</td>\n",
+       "      <td>5538</td>\n",
+       "      <td>1059</td>\n",
+       "      <td>想找一張最冷靜的找不到，就找一張圖文不符的\\n\\n--\\n\\n很多事情要做，很多話想說\\n\\...</td>\n",
+       "      <td>Timeline Photos</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>1578799123000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>2020/01/11 23:08:05</td>\n",
+       "      <td>3Q 陳柏惟</td>\n",
+       "      <td>540113462988316</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>photo</td>\n",
+       "      <td>114715</td>\n",
+       "      <td>104852</td>\n",
+       "      <td>45</td>\n",
+       "      <td>7745</td>\n",
+       "      <td>2053</td>\n",
+       "      <td>15</td>\n",
+       "      <td>5</td>\n",
+       "      <td>7826</td>\n",
+       "      <td>467</td>\n",
+       "      <td>我現在心中只有感謝，等等要寫一篇像打贏大專杯的超級長文，但是因為要打很久，所以電話跟訊息都沒...</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>1578755285000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>5</th>\n",
+       "      <td>2020/01/11 15:02:16</td>\n",
+       "      <td>3Q 陳柏惟</td>\n",
+       "      <td>540113462988316</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>photo</td>\n",
+       "      <td>91580</td>\n",
+       "      <td>84937</td>\n",
+       "      <td>77</td>\n",
+       "      <td>2546</td>\n",
+       "      <td>4002</td>\n",
+       "      <td>8</td>\n",
+       "      <td>10</td>\n",
+       "      <td>14330</td>\n",
+       "      <td>184</td>\n",
+       "      <td>有那個周六下午沒人的烏日三榮路高鐵球場？\\n\\n我等你，你帶球，到1540.\\n\\n沒投票的...</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>1578726136000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>6</th>\n",
+       "      <td>2020/01/11 23:43:21</td>\n",
+       "      <td>3Q 陳柏惟</td>\n",
+       "      <td>540113462988316</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>video</td>\n",
+       "      <td>95990</td>\n",
+       "      <td>83417</td>\n",
+       "      <td>66</td>\n",
+       "      <td>11741</td>\n",
+       "      <td>667</td>\n",
+       "      <td>42</td>\n",
+       "      <td>57</td>\n",
+       "      <td>25824</td>\n",
+       "      <td>1392</td>\n",
+       "      <td>真、勝選感言\\n\\n3Q陳柏惟</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>1578757401000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>7</th>\n",
+       "      <td>2020/01/11 10:56:18</td>\n",
+       "      <td>3Q 陳柏惟</td>\n",
+       "      <td>540113462988316</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>photo</td>\n",
+       "      <td>77274</td>\n",
+       "      <td>67352</td>\n",
+       "      <td>62</td>\n",
+       "      <td>2724</td>\n",
+       "      <td>7130</td>\n",
+       "      <td>1</td>\n",
+       "      <td>5</td>\n",
+       "      <td>3095</td>\n",
+       "      <td>115</td>\n",
+       "      <td>結束選務的第一天，想說自己買菜結果跑錯路去學校\\n\\n想不到居然還有賣！\\n\\n真心感謝，3Q！</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>1578711378000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>8</th>\n",
+       "      <td>2020/01/12 13:25:40</td>\n",
+       "      <td>3Q 陳柏惟</td>\n",
+       "      <td>540113462988316</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>video</td>\n",
+       "      <td>71405</td>\n",
+       "      <td>64366</td>\n",
+       "      <td>63</td>\n",
+       "      <td>6159</td>\n",
+       "      <td>760</td>\n",
+       "      <td>16</td>\n",
+       "      <td>41</td>\n",
+       "      <td>15263</td>\n",
+       "      <td>1750</td>\n",
+       "      <td>3Q🚴‍♀️謝票行\\n\\n烏日-霧峰\\n　\\n#繼續努力一起前進</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>1578806740000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>9</th>\n",
+       "      <td>2019/12/22 00:49:10</td>\n",
+       "      <td>3Q 陳柏惟</td>\n",
+       "      <td>540113462988316</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>video</td>\n",
+       "      <td>67238</td>\n",
+       "      <td>63658</td>\n",
+       "      <td>47</td>\n",
+       "      <td>3034</td>\n",
+       "      <td>319</td>\n",
+       "      <td>75</td>\n",
+       "      <td>105</td>\n",
+       "      <td>3941</td>\n",
+       "      <td>4145</td>\n",
+       "      <td>12點結束後援會的行程，因為來不及坐高鐵所以倉惶決定開車到高雄，原本順暢大條的中正路從交流道...</td>\n",
+       "      <td>高雄你好嗎? ft. 疼惜高雄的人</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>1576946950000</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                  Date Page_Name          Page_ID  Link   Type  \\\n",
+       "0  2020/01/12 01:17:08    3Q 陳柏惟  540113462988316   NaN  photo   \n",
+       "1  2020/01/11 19:20:53    3Q 陳柏惟  540113462988316   NaN  video   \n",
+       "2  2020/01/11 22:22:44       洪慈庸  852926604746233   NaN  photo   \n",
+       "3  2020/01/12 11:18:43    3Q 陳柏惟  540113462988316   NaN  photo   \n",
+       "4  2020/01/11 23:08:05    3Q 陳柏惟  540113462988316   NaN  photo   \n",
+       "5  2020/01/11 15:02:16    3Q 陳柏惟  540113462988316   NaN  photo   \n",
+       "6  2020/01/11 23:43:21    3Q 陳柏惟  540113462988316   NaN  video   \n",
+       "7  2020/01/11 10:56:18    3Q 陳柏惟  540113462988316   NaN  photo   \n",
+       "8  2020/01/12 13:25:40    3Q 陳柏惟  540113462988316   NaN  video   \n",
+       "9  2019/12/22 00:49:10    3Q 陳柏惟  540113462988316   NaN  video   \n",
+       "\n",
+       "   All_Reaction_Count  LIKE_COUNT  WOW_COUNT  LOVE_COUNT  HAHA_COUNT  \\\n",
+       "0              161773      150478         78       10670         506   \n",
+       "1              151413      131456        109       18474        1234   \n",
+       "2              144387      119716        112       11145         165   \n",
+       "3              120255      107230         79        5263        7674   \n",
+       "4              114715      104852         45        7745        2053   \n",
+       "5               91580       84937         77        2546        4002   \n",
+       "6               95990       83417         66       11741         667   \n",
+       "7               77274       67352         62        2724        7130   \n",
+       "8               71405       64366         63        6159         760   \n",
+       "9               67238       63658         47        3034         319   \n",
+       "\n",
+       "   SAD_COUNT  ANGRY_COUNT  Comment_Count  Share_Count  \\\n",
+       "0         34            7           9133         2454   \n",
+       "1         55           85          49462         3465   \n",
+       "2      13210           39          10209         1741   \n",
+       "3          4            5           5538         1059   \n",
+       "4         15            5           7826          467   \n",
+       "5          8           10          14330          184   \n",
+       "6         42           57          25824         1392   \n",
+       "7          1            5           3095          115   \n",
+       "8         16           41          15263         1750   \n",
+       "9         75          105           3941         4145   \n",
+       "\n",
+       "                                             Message         Link_Title  \\\n",
+       "0  【陳柏惟-勝選感言】\\n\\n謝謝你們，你們做到了。\\n\\n半年前，我來到這邊的時候，99%的...                NaN   \n",
+       "1                                             凍蒜啦!!!                NaN   \n",
+       "2  【請繼續相信年輕人，相信台灣這片土地】\\n　\\n謝謝大家，謝謝所有陪伴慈庸一路至今的朋友、長...                NaN   \n",
+       "3  想找一張最冷靜的找不到，就找一張圖文不符的\\n\\n--\\n\\n很多事情要做，很多話想說\\n\\...    Timeline Photos   \n",
+       "4  我現在心中只有感謝，等等要寫一篇像打贏大專杯的超級長文，但是因為要打很久，所以電話跟訊息都沒...                NaN   \n",
+       "5  有那個周六下午沒人的烏日三榮路高鐵球場？\\n\\n我等你，你帶球，到1540.\\n\\n沒投票的...                NaN   \n",
+       "6                                    真、勝選感言\\n\\n3Q陳柏惟                NaN   \n",
+       "7   結束選務的第一天，想說自己買菜結果跑錯路去學校\\n\\n想不到居然還有賣！\\n\\n真心感謝，3Q！                NaN   \n",
+       "8                   3Q🚴‍♀️謝票行\\n\\n烏日-霧峰\\n　\\n#繼續努力一起前進                NaN   \n",
+       "9  12點結束後援會的行程，因為來不及坐高鐵所以倉惶決定開車到高雄，原本順暢大條的中正路從交流道...  高雄你好嗎? ft. 疼惜高雄的人   \n",
+       "\n",
+       "  Link Description   created_time  \n",
+       "0              NaN  1578763028000  \n",
+       "1              NaN  1578741653000  \n",
+       "2              NaN  1578752564000  \n",
+       "3              NaN  1578799123000  \n",
+       "4              NaN  1578755285000  \n",
+       "5              NaN  1578726136000  \n",
+       "6              NaN  1578757401000  \n",
+       "7              NaN  1578711378000  \n",
+       "8              NaN  1578806740000  \n",
+       "9              NaN  1576946950000  "
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "print(df)\n",
+    "df.head(10)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**分組**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "people= df.groupby(\"Page_Name\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**合併名字**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df[\"Page_Name\"] = df[\"Page_Name\"].str.replace(\"三民惟新 陳柏惟\",\"3Q 陳柏惟\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**分組**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "p1 = people.get_group(\"3Q 陳柏惟\")['LIKE_COUNT'].agg('sum')\n",
+    "p2 = people.get_group(\"顏寬恒\")['LIKE_COUNT'].agg('sum')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "peopledata = {'Name':['3Q 陳柏惟','顏寬恒'], 'LIKE':[p1, p2]}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "likedata = pd.DataFrame(peopledata)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Name</th>\n",
+       "      <th>LIKE</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>3Q 陳柏惟</td>\n",
+       "      <td>10942822</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>顏寬恒</td>\n",
+       "      <td>972043</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "     Name      LIKE\n",
+       "0  3Q 陳柏惟  10942822\n",
+       "1     顏寬恒    972043"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "likedata"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<matplotlib.axes._subplots.AxesSubplot at 0x11edc4150>"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    },
+    {
+     "data": {
+      "image/png": "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\n",
+      "text/plain": [
+       "<Figure size 432x288 with 1 Axes>"
+      ]
+     },
+     "metadata": {
+      "needs_background": "light"
+     },
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "plt.rcParams['font.sans-serif']=['SimHei'] \n",
+    "#剛剛的likedata，可以利用plot.bar畫圖，設定xy軸的值各是likedata的name和LIKE\n",
+    "likedata.plot.bar(x='Name', y='LIKE')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np\n",
+    "import matplotlib.pyplot as plt"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<matplotlib.axes._subplots.AxesSubplot at 0x120106510>"
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    },
+    {
+     "data": {
+      "image/png": "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\n",
+      "text/plain": [
+       "<Figure size 432x288 with 1 Axes>"
+      ]
+     },
+     "metadata": {
+      "needs_background": "light"
+     },
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "likedata.plot.bar(x='Name', y='LIKE', color=['green','blue'])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**改成分享數**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Name</th>\n",
+       "      <th>Share</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>3Q 陳柏惟</td>\n",
+       "      <td>306982</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>顏寬恒</td>\n",
+       "      <td>27109</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "     Name   Share\n",
+       "0  3Q 陳柏惟  306982\n",
+       "1     顏寬恒   27109"
+      ]
+     },
+     "execution_count": 45,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import matplotlib.pyplot as plt\n",
+    "import pandas as pd\n",
+    "df = pd.read_csv('/Users/wombat/Desktop/課程筆記/政治與資訊/教學資料/CSV 資料集/10802_2020_tclw.csv')  \n",
+    "people= df.groupby(\"Page_Name\")\n",
+    "df[\"Page_Name\"] = df[\"Page_Name\"].str.replace(\"三民惟新 陳柏惟\",\"3Q 陳柏惟\")\n",
+    "p1 = people.get_group(\"3Q 陳柏惟\")['Share_Count'].agg('sum')\n",
+    "p2 = people.get_group(\"顏寬恒\")['Share_Count'].agg('sum')\n",
+    "peopledata = {'Name':['3Q 陳柏惟','顏寬恒'], 'Share':[p1, p2]}\n",
+    "sharedata = pd.DataFrame(peopledata)\n",
+    "sharedata\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 46,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<matplotlib.axes._subplots.AxesSubplot at 0x1201ec750>"
+      ]
+     },
+     "execution_count": 46,
+     "metadata": {},
+     "output_type": "execute_result"
+    },
+    {
+     "data": {
+      "image/png": "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\n",
+      "text/plain": [
+       "<Figure size 432x288 with 1 Axes>"
+      ]
+     },
+     "metadata": {
+      "needs_background": "light"
+     },
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "plt.rcParams['font.sans-serif']=['SimHei'] \n",
+    "sharedata.plot.bar(x='Name', y='Share')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 48,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<matplotlib.axes._subplots.AxesSubplot at 0x120336490>"
+      ]
+     },
+     "execution_count": 48,
+     "metadata": {},
+     "output_type": "execute_result"
+    },
+    {
+     "data": {
+      "image/png": "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\n",
+      "text/plain": [
+       "<Figure size 432x288 with 1 Axes>"
+      ]
+     },
+     "metadata": {
+      "needs_background": "light"
+     },
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "sharedata.plot.bar(x='Name', y='Share', color=['green','blue'])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
